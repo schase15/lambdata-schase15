@@ -7,9 +7,9 @@ with open("README.md", "r") as fh:
 
 setup(
     name="lambdata-schase15", # the name that you will install via pip
-    version="1.0",
+    version="1.2",
     author="Steven Chase",
-    author_email="schase15@email.com",
+    author_email="schase15@gmail.com",
     description="First time creating a package",
     long_description=long_description,
     long_description_content_type="text/markdown", # required if using a md file for long desc
