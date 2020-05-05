@@ -8,8 +8,12 @@ class Polo():
         self.size = size
         self.color = color
 
+    @property
+    def full_name(self):
+        return f'{self.size} {self.color}'
+
     def wash(self):
-        print('WASHING THE POLO!')
+        print(f'WASHING THE {self.size} {self.color} POLO!')
 
     def fold(self):
         print('FOLDING THE POLO!')
@@ -21,8 +25,10 @@ if __name__ == "__main__":
 
     p1 = Polo(size= 'Small', color= 'Blue')
     print(p1.size, p1.color)
+    print(p1.full_name)
     p1.wash()
 
     p2 = Polo(size= 'Large', color= 'Yellow')
     print(p2.size, p2.color)
+    print(p2.full_name)
     p2.fold()
