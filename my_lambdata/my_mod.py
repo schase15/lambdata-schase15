@@ -51,11 +51,18 @@ def list_to_column(input_list, input_df):
             column named new_column with values from given list.
 
     '''
-    # Turn given list into series
-    series = pandas.Series(input_list, name='vals')
-    # Turn series into a dataframe
-    new_df = series.to_frame()
-    # Add new dataframe as new column on input df
-    input_df['new_column'] = new_df['vals']
+
+    # Create a new class called: NewSeries
+    class NewSeries():
+        # Parameters
+        def __init__(self, input_list):
+            self.input_list = input_list
+
+        # Method: converts input_list to a column
+        def to_column(self):
+            return pandas.Series(self.input_list, name='vals').to_frame()
+
+    # Add new column created from list using NewSeries to input_df
+    input_df['new_column'] = NewSeries(input_list).to_column()['vals']
 
     return input_df
