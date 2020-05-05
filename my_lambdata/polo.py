@@ -8,6 +8,7 @@ class Polo():
         self.size = size
         self.color = color
 
+# Adding property
     @property
     def full_name(self):
         return f'{self.size} {self.color}'
