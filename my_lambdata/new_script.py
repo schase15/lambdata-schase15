@@ -19,5 +19,13 @@ column.to_column()
 print(column.df)
 
 
-from my_lambdata.class_example1 import Wrangler
+
+from my_lambdata.practice_inheritance import NewDate
+
+df= pandas.DataFrame({'date': ['4/25/2017', '5/5/2018',
+    '5/30/2020']})
+
+date = NewDate(df, 'date')
+
+print(date.df)
 
