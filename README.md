@@ -2,7 +2,7 @@
 
 ## Installation
 ```sh
-pip install -i https://test.pypi.org/simple/ lambdata-schase15==1.6
+pip install -i https://test.pypi.org/simple/ lambdata-schase15
 ```
 
 ## Usage
