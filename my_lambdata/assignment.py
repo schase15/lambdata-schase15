@@ -6,7 +6,6 @@
 
 import pandas
 
-
 # Define function to split dates and return into multiple columns
 def date_split(X, header):
     '''
@@ -37,20 +36,33 @@ def date_split(X, header):
     return X
 
 
-#### Also coverted the first function into a class
-# class Date():
+### Also coverted the first function into a class
+class Date():
+    '''
+    Takes a df with a date column and splits it into seperate year, month, day columns.
+    Keeps the original column.
+    '''
 
-#   def __init__(self, df, header):
-#     self.df = df
-#     self.name = header
+    def __init__(self, df, header):
+        self.df = df
+        self.name = header
+        '''
+        Params: pandas.Dataframe with a date column
+                header of column containing dates. Must be a string.
+        '''
 
-#   def split(self):
-#     self.df[self.name] = pandas.to_datetime(self.df[self.name], infer_datetime_format=True)
+    def split(self):
+        '''
+        Splits given date column into year, month and day and adds them back to the original dataframe as new columns
+        '''
 
-#     # Extract components from date, create new columns for each element
-#     self.df['year'] = self.df[self.name].dt.year
-#     self.df['month'] = self.df[self.name].dt.month
-#     self.df['day'] = self.df[self.name].dt.day
+    # Converts to datetime
+        self.df[self.name]   = pandas.to_datetime(self.df[self.name], infer_datetime_format=True)
+
+    # Extract components from date, create new columns for each element
+        self.df['year'] = self.df[self.name].dt.year
+        self.df['month'] = self.df[self.name].dt.month
+        self.df['day'] = self.df[self.name].dt.day
 
 
 
@@ -107,3 +119,18 @@ if __name__ == "__main__":
         '5/30/2010']})
 
     print(date_split(X, 'date'))
+
+# Use Date class to split into columns
+
+    # Define attributes
+    z = pandas.DataFrame({'date': ['4/25/2017', '5/5/2018',
+        '5/30/2010']})
+
+    # Create object
+    date_df = Date(z, 'date')
+
+    # Call method - this will modify the df stored inside the object
+    date_df.split()
+
+    # Print df inside object
+    print(date_df.df)

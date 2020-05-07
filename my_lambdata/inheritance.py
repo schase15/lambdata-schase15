@@ -5,7 +5,7 @@
 from pandas import DataFrame
 
 # Passing in the class DataFrame as this is an inheritance example,
-# Out class will inherit everything from its parent class and then we will modify it
+# Our class will inherit everything from its parent class and then we will modify it
 class WrangledFrame(DataFrame):
     '''
     A custom pandas.DataFrame with a column called "abbrev"
